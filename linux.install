@@ -1,0 +1,36 @@
+post_install() {
+    if command -v mkinitcpio >/dev/null 2>&1; then
+        echo ":: Running mkinitcpio for linux-koishi..."
+        mkinitcpio -p linux-koishi
+
+    elif command -v dracut >/dev/null 2>&1; then
+        echo ":: Running dracut for linux-koishi..."
+
+        _kernver="$(basename /usr/lib/modules/*asa)"
+
+        dracut -f "/boot/initramfs-koishi.img" "$_kernver" --hostonly -v
+    else
+        echo ":: No initramfs generator found!"
+    fi
+}
+
+post_upgrade() {
+    if command -v mkinitcpio >/dev/null 2>&1; then
+        echo ":: Running mkinitcpio for linux-koishi..."
+        mkinitcpio -p linux-koishi
+
+    elif command -v dracut >/dev/null 2>&1; then
+        echo ":: Running dracut for linux-koishi..."
+
+        _kernver="$(basename /usr/lib/modules/*asa)"
+
+        dracut -f "/boot/initramfs-koishi.img" "$_kernver" --hostonly -v
+    else
+        echo ":: No initramfs generator found!"
+    fi
+}
+
+pre_remove() {
+    echo ":: Removing initramfs for linux-koishi..."
+    rm -f /boot/initramfs-koishi.img
+}
