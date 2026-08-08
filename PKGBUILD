@@ -1,6 +1,6 @@
 # Maintainer: Ali Ali <AlieAlii@goo.su>
 pkgname="linux-koishi"
-pkgver=6.12.94
+pkgver=6.12.102
 pkgrel=1
 pkgdesc="Linux kernel made with koishi power"
 arch=('x86_64')
@@ -36,7 +36,7 @@ build() {
     mkdir -p "$srcdir/usr"
     cd "$srcdir"
     make headers_install INSTALL_HDR_PATH="$srcdir/usr"
-#    make tar-pkg
+    make tar-pkg
     mkdir -p etc/mkinitcpio.d
 }
 

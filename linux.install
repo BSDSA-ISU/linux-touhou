@@ -6,7 +6,7 @@ post_install() {
     elif command -v dracut >/dev/null 2>&1; then
         echo ":: Running dracut for linux-koishi..."
 
-        _kernver="$(basename /usr/lib/modules/*asa)"
+        _kernver="$(basename /usr/lib/modules/*iji)"
 
         dracut -f "/boot/initramfs-koishi.img" "$_kernver" --hostonly -v
     else
@@ -22,7 +22,7 @@ post_upgrade() {
     elif command -v dracut >/dev/null 2>&1; then
         echo ":: Running dracut for linux-koishi..."
 
-        _kernver="$(basename /usr/lib/modules/*asa)"
+        _kernver="$(basename /usr/lib/modules/*iji)"
 
         dracut -f "/boot/initramfs-koishi.img" "$_kernver" --hostonly -v
     else
