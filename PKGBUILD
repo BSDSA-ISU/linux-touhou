@@ -1,7 +1,7 @@
 # Maintainer: Ali Ali <AlieAlii@goo.su>
 pkgname="linux-koishi"
-pkgver=6.12.102
-pkgrel=1
+pkgver=6.12.109
+pkgrel=2
 pkgdesc="Linux kernel made with koishi power"
 arch=('x86_64')
 url="https://kernel.org/"
